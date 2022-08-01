@@ -23,6 +23,8 @@ from pytorch_lightning.loggers.neptune import NeptuneLogger  # noqa: F401
 from pytorch_lightning.loggers.tensorboard import TensorBoardLogger
 from pytorch_lightning.loggers.wandb import WandbLogger  # noqa: F401
 
+from pytorch_lightning.loggers.test_tube import _TESTTUBE_AVAILABLE, TestTubeLogger  # noqa: F401
+
 __all__ = ["CSVLogger", "LightningLoggerBase", "Logger", "LoggerCollection", "TensorBoardLogger"]
 
 if _COMET_AVAILABLE:
@@ -32,3 +34,6 @@ if _COMET_AVAILABLE:
 
 if _MLFLOW_AVAILABLE:
     __all__.append("MLFlowLogger")
+
+if _TESTTUBE_AVAILABLE:
+    __all__.append("TestTubeLogger")
