@@ -171,6 +171,7 @@ class Trainer(
         sync_batchnorm: bool = False,
         precision: Union[int, str] = 32,
         enable_model_summary: bool = True,
+        weights_summary: Optional[str] = "top",
         weights_save_path: Optional[str] = None,  # TODO: Remove in 1.8
         num_sanity_val_steps: int = 2,
         resume_from_checkpoint: Optional[Union[Path, str]] = None,
@@ -473,6 +474,9 @@ class Trainer(
 
         # default .predict() loop
         self.predict_loop = PredictionLoop()
+
+        # training state
+        self.weights_summary = weights_summary      # refresh removed code
 
         # set when a checkpoint is loaded via `Trainer.{fit,validate,test,predict}`.
         self._ckpt_path: Optional[str] = None
