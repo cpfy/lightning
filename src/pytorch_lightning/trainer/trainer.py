@@ -150,6 +150,7 @@ class Trainer(
         tpu_cores: Optional[Union[List[int], str, int]] = None,  # TODO: Remove in 2.0
         ipus: Optional[int] = None,  # TODO: Remove in 2.0
         enable_progress_bar: bool = True,
+        #progress_bar_refresh_rate: Optional[int] = None,         # Revert as in v1.4.8;但无意义
         overfit_batches: Union[int, float] = 0.0,
         track_grad_norm: Union[int, float, str] = -1,
         check_val_every_n_epoch: Optional[int] = 1,
@@ -171,7 +172,7 @@ class Trainer(
         sync_batchnorm: bool = False,
         precision: Union[int, str] = 32,
         enable_model_summary: bool = True,
-        weights_summary: Optional[str] = "top",
+        weights_summary: Optional[str] = "top",     # Revert as in v1.4.8
         weights_save_path: Optional[str] = None,  # TODO: Remove in 1.8
         num_sanity_val_steps: int = 2,
         resume_from_checkpoint: Optional[Union[Path, str]] = None,
