@@ -24,9 +24,9 @@ import numpy as np
 import torch
 
 from pytorch_lightning.utilities.exceptions import MisconfigurationException
-from pytorch_lightning.utilities.imports import _compare_version, _TORCHTEXT_AVAILABLE
+from pytorch_lightning.utilities.imports import _compare_version, _TORCHTEXT_LEGACY
 
-if _TORCHTEXT_AVAILABLE:
+if _TORCHTEXT_LEGACY:
     if _compare_version("torchtext", operator.ge, "0.9.0"):
         from torchtext.legacy.data import Batch
     else:
