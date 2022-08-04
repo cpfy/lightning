@@ -247,7 +247,7 @@ def move_data_to_device(batch: Any, device: torch.device):
 
     def batch_to(data):
         # try to move torchtext data first
-        if _TORCHTEXT_AVAILABLE and isinstance(data, Batch):
+        if _TORCHTEXT_LEGACY and isinstance(data, Batch):
 
             # Shallow copy because each Batch has a reference to Dataset which contains all examples
             device_data = copy(data)
@@ -265,7 +265,7 @@ def move_data_to_device(batch: Any, device: torch.device):
         # user wrongly implemented the `TransferableDataType` and forgot to return `self`.
         return data
 
-    dtype = (TransferableDataType, Batch) if _TORCHTEXT_AVAILABLE else TransferableDataType
+    dtype = (TransferableDataType, Batch) if _TORCHTEXT_LEGACY else TransferableDataType
     return apply_to_collection(batch, dtype=dtype, function=batch_to)
 
 
